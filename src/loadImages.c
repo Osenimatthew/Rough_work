@@ -2,33 +2,20 @@
 
 /**
  * loadImages - loads images from file and puts element information in buffer
- * @mapName: name of map loaded
  * Return: void
  */
-void loadImages(char *mapName)
+void loadImages(void)
 {
         SDL_Surface *imgSrc[TEX_COUNT]; /* array of loaded textures */
         uint8_t *element; /* color value of element at given coordinate */
         int a, b, c; /* loop counters */
 
-        if (strcmp(mapName, "maps/maze_01") == 0)
-        {
                 imgSrc[0] = IMG_Load("images/wall1.png");
                 imgSrc[1] = IMG_Load("images/wall2.png");
                 imgSrc[2] = IMG_Load("images/window1.png");
                 imgSrc[3] = IMG_Load("images/window2.png");
                 imgSrc[4] = IMG_Load("images/ceiling.png");
                 imgSrc[5] = IMG_Load("images/floorboard.png");
-        }
-        else
-        {
-                imgSrc[0] = IMG_Load("images/wall1.png");
-                imgSrc[1] = IMG_Load("images/wall2.png");
-                imgSrc[2] = IMG_Load("images/window1.png");
-                imgSrc[3] = IMG_Load("images/window2.png");
-                imgSrc[4] = IMG_Load("images/ceiling.png");
-                imgSrc[5] = IMG_Load("images/floorboard.png");
-        }
 
         /* get colors from texture elements and put in array */
         for (a = 0; a < TEX_COUNT; a++)

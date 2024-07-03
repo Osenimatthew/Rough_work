@@ -65,15 +65,12 @@ int main(int argc, char *argv[])
                 return (1);
 
         if (textured)
-                loadImages(mapName);
+                loadImages();
 
         /* loops until user exits by ESC or closing window */
         while (!end())
         {
-                if (!textured)
-                        renderBGFlat();
-
-                /* draw walls, textured floor, and textured ceiling */
+		/* draw walls, textured floor, and textured ceiling */
                 raycaster(maze, textured);
 
                 /* handles user input */

@@ -19,7 +19,7 @@ void movement(int *maze)
         time = SDL_GetTicks();
         frameTime = (time - prevTime) / 1000.0;
         Speed = (frameTime * 5.0);
-        turningSpeed = (frameTime * 3.0) / 2;
+        turningSpeed = (frameTime * 3.0);
 
         /* key for moving forward if no wall is in front */
         if (keystate[SDL_SCANCODE_W])
@@ -43,28 +43,6 @@ void movement(int *maze)
 		pos.y -= dir.y * Speed;
         }
 
-        /* key for moving to the left */
-        if (keystate[SDL_SCANCODE_Q])
-        {
-                if (!*((int *)maze + (int)(pos.x - plane.x * Speed) *
-                       MAP_WIDTH + (int)(pos.y)))
-                        pos.x -= plane.x * Speed;
-                if (!*((int *)maze + (int)(pos.x) * MAP_WIDTH +
-                       (int)(pos.y - plane.y * Speed)))
-                        pos.y -= plane.y * Speed;
-        }
-
-        /* key for moving to the right */
-        if (keystate[SDL_SCANCODE_E])
-        {
-                if (!*((int *)maze + (int)(pos.x + plane.x * Speed) *
-                       MAP_WIDTH + (int)(pos.y)))
-                        pos.x += plane.x * Speed;
-                if (!*((int *)maze + (int)(pos.x) * MAP_WIDTH +
-                       (int)(pos.y + plane.y * Speed)))
-                        pos.y += plane.y * Speed;
-        }
-
         /* key for turning to the left */
         if (keystate[SDL_SCANCODE_D])
         {
@@ -78,7 +56,7 @@ void movement(int *maze)
                 plane.x = plane.x * cos(turningSpeed) - plane.y * sin(turningSpeed);
                 plane.y = prevPlaneX * sin(turningSpeed) + plane.y * cos(turningSpeed);
         }
-/* key for turning to the right */
+		/* key for turning to the right */
         if (keystate[SDL_SCANCODE_A])
         {
                 /* rotating camera direction to the right */
@@ -101,7 +79,6 @@ bool end(void)
 {
         SDL_Event event; /* event listener */
         bool end;
-        uint32_t windowFlags;
 
         end = false;
         while (SDL_PollEvent(&event) != 0)
@@ -113,19 +90,7 @@ bool end(void)
                 /* if ESC is pressed */
                 if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE)
                         end = true;
-
-                /* toggles between windowed and fullscreens */
-                if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_f)
-                {
- windowFlags = SDL_GetWindowFlags(window);
-
-                        if (windowFlags & SDL_WINDOW_FULLSCREEN)
-                                SDL_SetWindowFullscreen(window, SDL_FALSE);
-                        else
-                                SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
-                }
         }
 
         return (end);
 }
-

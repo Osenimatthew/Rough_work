@@ -1,7 +1,6 @@
 #ifndef MAZE_H
 #define MAZE_H
 
-/* macros */
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 800
 #define TEX_COUNT 6
@@ -28,7 +27,7 @@
 #include "global.h" /* global variables */
 
 int *parseMap(char *filename, int *map);
-void loadImages(char *mapName);
+void loadImages(void);
 
 bool initializeSDL(void);
 void updateRenderer(bool textured);
@@ -38,8 +37,7 @@ void movement(int *maze);
 bool end(void);
 
 void raycaster(int *maze, bool textured);
-void renderWalls(int *maze, SDL_Point map, point_t rayPos, point_t rayDir, double distToWall, int x, int side, bool textured);
-void renderBGFlat(void);
+void renderWalls(int *maze, SDL_Point map, point_t rayPos, point_t rayDir, double distToWall, int x, int side);
 void renderBGTex(SDL_Point map, point_t rayDir, double distToWall, double wallX, int drawEnd, int x, int side);
 
 #endif /* MAZE_H */

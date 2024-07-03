@@ -93,7 +93,7 @@ void raycaster(int *maze, bool textured)
 			distToWall = (map.y - rayPos.y + (1 - step.y) / 2) / rayDir.y;
 
 		/* draw walls to buffer */
-		renderWalls(maze, map, rayPos, rayDir, distToWall, x, side, textured);
+		renderWalls(maze, map, rayPos, rayDir, distToWall, x, side);
 	}
 
 	/* draw updated buffer with walls, floor, and ceiling to renderer */
