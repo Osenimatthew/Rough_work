@@ -27,7 +27,7 @@ void movement(int *maze)
 		if (!*((int *)maze + (int)(pos.x + dir.x * Speed)
 					* MAP_WIDTH + (int)pos.y))
 			pos.x += dir.x * Speed;
-		*if (!*((int *)maze + (int)pos.x * MAP_WIDTH +
+		if (!*((int *)maze + (int)pos.x * MAP_WIDTH +
 					(int)(pos.y + dir.y * Speed)))
 			pos.y += dir.y * Speed;
 	}

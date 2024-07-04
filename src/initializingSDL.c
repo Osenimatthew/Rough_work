@@ -1,7 +1,7 @@
 #include "header/maze.h"
 
 /**
- * initSDL - initializes SDL, window, and renderer
+ * initializeSDL - initializes SDL, window, and renderer
  * Return: True on success, False on failure
  */
 bool initializeSDL(void)

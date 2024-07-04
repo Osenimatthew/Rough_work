@@ -6,7 +6,7 @@
  */
 void loadImages(void)
 {
-	SDL_Surface *imgSrc[TEX_COUNT]; /* array of loaded textures */
+	SDL_Surface * imgSrc[TEX_COUNT]; /* array of loaded textures */
 	uint8_t *element; /* color value of element at given coordinate */
 	int a, b, c; /* loop counters */
 
