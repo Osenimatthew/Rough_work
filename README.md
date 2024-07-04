@@ -6,7 +6,7 @@ A simple Ray Casting 3D engine using SDL as the rendering back-end.
 - Oseni Matthew ... [LinkedIn](https://www.linkedin.com/in/oseni-matthew-025b4a283/) 
 
 ## The goal of this project is to create a game in 3D using raycasting !
-This was designed for kids so that it could improve their spatial recognition and analytical skills
+We created a 3D maze game for the chance to combine coding, design, and problem-solving creatively.
 
 ## Keyboard Controls
 - `W`   : Move Forward
