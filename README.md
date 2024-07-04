@@ -15,6 +15,10 @@ This was designed for kids so that it could improve their spatial recognition an
 - `D`   : Rotate Right 
 - `ESC` : Quit Game
 
+## Game Screenshot
+
+![maze2](https://github.com/Osenimatthew/Rough_work/blob/master/images/maze2.png)
+
 ### <u>Tools and Languages Used...</u>
 - C language
 - SDL2 (Simple Directmedia Layer)
