@@ -43,10 +43,10 @@ void movement(int *maze)
 		pos.y -= dir.y * Speed;
         }
 
-        /* key for turning to the left */
+        /* key for turning to the right */
         if (keystate[SDL_SCANCODE_D])
         {
-                /* rotating camera direction the left */
+                /* rotating camera direction the right */
                 prevDirX = dir.x;
                 dir.x = dir.x * cos(turningSpeed) - dir.y * sin(turningSpeed);
                 dir.y = prevDirX * sin(turningSpeed) + dir.y * cos(turningSpeed);
@@ -56,10 +56,10 @@ void movement(int *maze)
                 plane.x = plane.x * cos(turningSpeed) - plane.y * sin(turningSpeed);
                 plane.y = prevPlaneX * sin(turningSpeed) + plane.y * cos(turningSpeed);
         }
-		/* key for turning to the right */
+		/* key for turning to the left */
         if (keystate[SDL_SCANCODE_A])
         {
-                /* rotating camera direction to the right */
+                /* rotating camera direction to the left */
                 prevDirX = dir.x;
                 dir.x = dir.x * cos(-turningSpeed) - dir.y * sin(-turningSpeed);
                 dir.y = prevDirX * sin(-turningSpeed) + dir.y * cos(-turningSpeed);
@@ -68,7 +68,48 @@ void movement(int *maze)
                 prevPlaneX = plane.x;
                 plane.x = plane.x * cos(-turningSpeed) - plane.y * sin(-turningSpeed);
                 plane.y = prevPlaneX * sin(-turningSpeed) + plane.y * cos(-turningSpeed);
-        }
+	}
+	if (keystate[SDL_SCANCODE_UP])
+	{
+		if (!*((int *)maze + (int)(pos.x + dir.x * Speed)
+                       * MAP_WIDTH + (int)pos.y))
+                        pos.x += dir.x * Speed;
+                if (!*((int *)maze + (int)pos.x * MAP_WIDTH +
+                       (int)(pos.y + dir.y * Speed)))
+                        pos.y += dir.y * Speed;
+	}
+	if (keystate[SDL_SCANCODE_DOWN])
+	{
+		if (!*((int *)maze + (int)(pos.x - dir.x * Speed) *
+                       MAP_WIDTH + (int)(pos.y)))
+               	       pos.x -= dir.x * Speed;
+               	if (!*((int *)maze + (int)(pos.x) * MAP_WIDTH +
+                       (int)(pos.y - dir.y * Speed)))
+               		pos.y -= dir.y * Speed;
+	}
+	if (keystate[SDL_SCANCODE_RIGHT])
+	{
+		/* rotating camera direction the right */
+                prevDirX = dir.x;
+                dir.x = dir.x * cos(turningSpeed) - dir.y * sin(turningSpeed);
+                dir.y = prevDirX * sin(turningSpeed) + dir.y * cos(turningSpeed);
+
+                /* rotating camera plane */
+                prevPlaneX = plane.x;
+                plane.x = plane.x * cos(turningSpeed) - plane.y * sin(turningSpeed);
+                plane.y = prevPlaneX * sin(turningSpeed) + plane.y * cos(turningSpeed);
+	}
+	if (keystate[SDL_SCANCODE_LEFT])
+	{
+		/* rotating camera direction to the left */
+                prevDirX = dir.x;
+                dir.x = dir.x * cos(-turningSpeed) - dir.y * sin(-turningSpeed);
+                dir.y = prevDirX * sin(-turningSpeed) + dir.y * cos(-turningSpeed);
+                /* rotating camera plane */
+                prevPlaneX = plane.x;
+                plane.x = plane.x * cos(-turningSpeed) - plane.y * sin(-turningSpeed);
+                plane.y = prevPlaneX * sin(-turningSpeed) + plane.y * cos(-turningSpeed);
+	}
 }
 
 /**

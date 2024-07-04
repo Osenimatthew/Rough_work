@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
         if (maze == NULL)
                 return (1);
 
-        if (textured)
+	if (textured)
                 loadImages();
 
         /* loops until user exits by ESC or closing window */
