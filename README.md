@@ -8,15 +8,13 @@ A simple Ray Casting 3D engine using SDL as the rendering back-end.
 ## The goal of this project is to create a game in 3D using raycasting !
 This was designed for kids so that it could improve their spatial recognition and analytical skills
 
-## Keyboard Keys for Players
-- `Arrow Keys` -- Player Directions 
-- `R` -- Refresh 
-- `M` -- Map 
-- `C` -- Zoom Player view 
-- `[` -- Zoom Out in Game 
-- `]` -- Zoom In in Game 
-- `F` -- Change Views (Normal view to Panoramic view and vice versa) 
-- `T` -- Change Texture of walls and square columns 
+## Keyboard Controls
+- `` 
+- `W`   : Move Forward
+- `S`   : Move Backward
+- `A`   : Rotate Left 
+- `D`   : Rotate Right 
+- `ESC` : Quit Game
 
 ### <u>Tools and Languages Used...</u>
 - C language
