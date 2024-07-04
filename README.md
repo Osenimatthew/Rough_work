@@ -9,7 +9,6 @@ A simple Ray Casting 3D engine using SDL as the rendering back-end.
 This was designed for kids so that it could improve their spatial recognition and analytical skills
 
 ## Keyboard Controls
-- `` 
 - `W`   : Move Forward
 - `S`   : Move Backward
 - `A`   : Rotate Left 
