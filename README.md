@@ -23,7 +23,7 @@ This was designed for kids so that it could improve their spatial recognition an
 
 ## Compiling
 Using a Windows Operating sysytem, Navigate to the `src` folder and Compile with 
-`gcc -std=c17 *.c -I{Path to SDL2\include} -L{Path to SDL2\lib} -Wall -lmingw32 -lSDL2main -lSDL2 -o raycaster`
+`gcc src/*.c -o2 -g -Wall -Werror -Wextra -pedantic -Isrc/headers -lSDL2 -lSDL2_image -lm -o playgame `sdl2-config --cflags --libs`
 Check out [this link](https://www.matsson.com/prog/sdl2-mingw-w64-tutorial.php#:~:text=the%20gcc%20command.-,Step%202%3A%20Installing%20SDL2,library%20for%20Windows%20using%20MinGW.&text=After%20extracting%20the%20contents%20using,bit%20version%20of%20the%20library) for help.
 
 Using Linux, Navigate to the `src` folder and Compile with
