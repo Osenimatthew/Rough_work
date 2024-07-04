@@ -19,20 +19,20 @@ double time;
  */
 int main(int argc, char *argv[])
 {
-        int *maze; /* 2D array defining maze map */
-        char *mapName;
-        bool textured;
+	int *maze; /* 2D array defining maze map */
+	char *mapName;
+	bool textured;
 
-        /* initial values for global variables */
-        pos.x = 1;
-        pos.y = 12;
-        dir.x = 1;
-        dir.y = -0.66;
-        plane.x = 0;
-        plane.y = 0.66;
-        time = 0;
+	/* initial values for global variables */
+	pos.x = 1;
+	pos.y = 12;
+	dir.x = 1;
+	dir.y = -0.66;
+	plane.x = 0;
+	plane.y = 0.66;
+	time = 0;
 
-        /* check user arguments and set options */
+	/* check user arguments and set options */
 	mapName = "\0";
 	textured = true;
 	if (argc == 3)
@@ -54,32 +54,31 @@ int main(int argc, char *argv[])
 	else if (argc == 1)
 		mapName = "maps/maze_0";
 
-        /* start SDL and create window and renderer */
-        if (!initializeSDL())
-                return (1);
+	/* start SDL and create window and renderer */
+	if (!initializeSDL())
+		return (1);
 
-        /* parse maze file */
-        maze = NULL;
-        maze = parseMap(mapName, maze);
-        if (maze == NULL)
-                return (1);
+	/* parse maze file */
+	maze = NULL;
+	maze = parseMap(mapName, maze);
+	if (maze == NULL)
+		return (1);
 
 	if (textured)
-                loadImages();
+		loadImages();
 
-        /* loops until user exits by ESC or closing window */
-        while (!end())
-        {
+	/* loops until user exits by ESC or closing window */
+	while (!end())
+	{
 		/* draw walls, textured floor, and textured ceiling */
-                raycaster(maze, textured);
+		raycaster(maze, textured);
 
-                /* handles user input */
-                movement(maze);
-        }
+		/* handles user input */
+		movement(maze);
+	}
 
-        /* close SDL, renderer, and window */
-        endSDL();
-        free(maze);
-        return (0);
+	/* close SDL, renderer, and window */
+	endSDL();
+	free(maze);
+	return (0);
 }
-

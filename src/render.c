@@ -58,7 +58,7 @@ void renderWalls(int *maze, SDL_Point map, point_t rayPos, point_t rayDir, doubl
 	for (y = drawStart; y < drawEnd; y++)
 	{
 		tex.y = ((((y << 1) - SCREEN_HEIGHT + sliceHeight) <<
-			  (int)log2(TEX_HEIGHT)) / sliceHeight) >> 1;
+			(int)log2(TEX_HEIGHT)) / sliceHeight) >> 1;
 
 		color = tiles[tileIndex][tex.x][tex.y];
 
